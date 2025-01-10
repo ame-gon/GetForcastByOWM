@@ -1,13 +1,16 @@
 # OpenWetherMap の API を使用して取得したデータを Zabbix に送信して監視する
 
 ## LICENSE
+
 This software is released under the MIT License, see LICENSE.txt.
 
 ## 概要
+
 OpenWetherMap の API で提供されている予報データを取得して Zabbix に送信するスクリプトです。  
 本スクリプトでは指定した都市の 24 時間後の天気データを OpenWeathreMap API で取得後 Zabbix に送信しています。  
 
 ## 構成
+
 こんな感じです。  
 
 ```
@@ -15,6 +18,10 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
 ```
 
 ## 要件
+
+- OpenWeatherMap API の動作確認バージョン
+    - 2.5
+    - ※ 3.0 環境では動作確認していません。(Subscribe にクレジットカードの情報等が必要になったので登録するか悩み中のため...)
 - 本スクリプト設置の PC等
     - OpenWetherMap と HTTP 通信できること
     - Git、PHP が動作する環境であること
@@ -29,7 +36,9 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
         - Zabbix：5.0.25
 
 ## 使い方
+
 ### 事前準備
+
 - OpenWetherMap で api 使用のための appid を取得する
 - 予報データを取得したい都市の緯度(lattitude)、軽度(longitude)を調べる
 - Zabbixサーバーを準備して、予報データを保存するアイテムを作成する
@@ -55,6 +64,7 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
         - 取得できそうな値は OpenWetherMap で調べてみてください。
 
 ### 実行方法
+
 API の利用登録や config.json の準備ができたら、以下のコマンドを実行する。  
   
 ```
@@ -65,6 +75,7 @@ php <スクリプトが保存されているパス>/getForcast.php <config.json�
 ※ Zabbix では未来のデータとしての扱いになるので、データの見方は気を付けてください。  
 
 ## 免責事項
+
 - 本スクリプトはあくまでも自己責任でご利用ください。
 - OpenWetherMap API を使用するために必要なユーザー登録等はご自身で行ってください。
 - OpenWetherMap の仕様変更やサービスの変更などを含む本スクリプトを使用して発生したあらゆる損害、損失などについては保障しません。
