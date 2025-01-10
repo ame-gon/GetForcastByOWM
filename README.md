@@ -1,4 +1,4 @@
-# OpenWetherMap の API を使用して取得したデータを Zabbix に送信して監視する
+# OpenWeatherMap の API を使用して取得したデータを Zabbix に送信して監視する
 
 ## LICENSE
 
@@ -6,7 +6,7 @@ This software is released under the MIT License, see LICENSE.txt.
 
 ## 概要
 
-OpenWetherMap の API で提供されている予報データを取得して Zabbix に送信するスクリプトです。  
+OpenWeatherMap の API で提供されている予報データを取得して Zabbix に送信するスクリプトです。  
 本スクリプトでは指定した都市の 24 時間後の天気データを OpenWeathreMap API で取得後 Zabbix に送信しています。  
 
 ## 構成
@@ -14,7 +14,7 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
 こんな感じです。  
 
 ```
-[OpenWetherMap] <=== API ===> [本スクリプト設置の PC等] === Zabbix Sender ===> [Zabbix]
+[OpenWeatherMap] <=== API ===> [本スクリプト設置の PC等] === Zabbix Sender ===> [Zabbix]
 ```
 
 ## 要件
@@ -23,7 +23,7 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
     - 2.5
     - ※ 3.0 環境では動作確認していません。(Subscribe にクレジットカードの情報等が必要になったので登録するか悩み中のため...)
 - 本スクリプト設置の PC等
-    - OpenWetherMap と HTTP 通信できること
+    - OpenWeatherMap と HTTP 通信できること
     - Git、PHP が動作する環境であること
         - 参考：稼働確認済OSとモジュールバージョン
             - OS：CentOS 7
@@ -39,7 +39,7 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
 
 ### 事前準備
 
-- OpenWetherMap で api 使用のための appid を取得する
+- OpenWeatherMap で api 使用のための appid を取得する
 - 予報データを取得したい都市の緯度(lattitude)、軽度(longitude)を調べる
 - Zabbixサーバーを準備して、予報データを保存するアイテムを作成する
     - アイテムのタイプは Zabbix トラッパー
@@ -55,13 +55,13 @@ OpenWetherMap の API で提供されている予報データを取得して Zab
         "exclude" : "current,minutely,daily,alerts",
         "units" : "metric",
         "target_data" : "pressure",
-        "appid" : "OpenWetherMap から発行された appid",
+        "appid" : "OpenWeatherMap から発行された appid",
         "data_file" : "取得したデータを一時的に書き込むファイル",
         "zabbix_ip" : "ZabbixサーバーのIP",
         "zabbix_item_key" : "Zabbixサーバーに作成したアイテムのキー"
     ```
     - target_data は temp(気温) や humidity(湿度) なども取得することができる。
-        - 取得できそうな値は OpenWetherMap で調べてみてください。
+        - 取得できそうな値は OpenWeatherMap で調べてみてください。
 
 ### 実行方法
 
@@ -77,5 +77,5 @@ php <スクリプトが保存されているパス>/getForcast.php <config.json�
 ## 免責事項
 
 - 本スクリプトはあくまでも自己責任でご利用ください。
-- OpenWetherMap API を使用するために必要なユーザー登録等はご自身で行ってください。
-- OpenWetherMap の仕様変更やサービスの変更などを含む本スクリプトを使用して発生したあらゆる損害、損失などについては保障しません。
+- OpenWeatherMap API を使用するために必要なユーザー登録等はご自身で行ってください。
+- OpenWeatherMap の仕様変更やサービスの変更などを含む本スクリプトを使用して発生したあらゆる損害、損失などについては保障しません。
