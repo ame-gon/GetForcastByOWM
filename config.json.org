@@ -5,7 +5,7 @@
     "exclude" : "API で取得するデータの種類",
     "units" : "測定単位",
     "target_data" : "取得するデータの種類",
-    "appid" : "OpenWetherMap から発行された appid",
+    "appid" : "OpenWeatherMap から発行された appid",
     "data_file" : "取得したデータを一時的に書き込むファイル",
     "zabbix_ip" : "ZabbixサーバーのIP",
     "zabbix_item_key" : "Zabbixサーバーに作成したアイテムのキー"
